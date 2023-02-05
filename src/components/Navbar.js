@@ -1,32 +1,25 @@
-import React from "react";
+import React,{useContext} from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { AuthContext } from "../contexts/AuthContext";
 
-export default function Navbar(){
+const Navbar=()=>{
+
+    const {isAuthenticated,toggleAuth}=useContext(AuthContext);
+    const {isLightTheme,dark,light}=useContext(ThemeContext);
+    const theme=isLightTheme ? light:dark;
+
     return (
-        <AuthContext.Consumer>{(AuthContext)=>(
-            <ThemeContext.Consumer>{(context)=>{
-
-                const {isAuthenticated,toggleAuth}=AuthContext;
-                const {isLightTheme,dark,light}=context;
-                const theme=isLightTheme ? light:dark;
-
-                return (
-                    <nav style={{background:theme.ui,color:theme.syntax}}>
-                        <h1>SCapp</h1>
-                        <div onClick={toggleAuth}>{isAuthenticated ? "Çıkış Yap":"Giriş Yap" }</div>
-                        <ul>
-                            <li>Anasayfa</li>
-                            <li>Hakkımızda</li>
-                            <li>İletişim</li>
-                        </ul>
-                    </nav>
-                )
-            }}
-            </ThemeContext.Consumer>
-
-        )}
-        </AuthContext.Consumer>
+        <nav style={{background:theme.ui,color:theme.syntax}}>
+            <h1>SCapp</h1>
+            <div onClick={toggleAuth}>{isAuthenticated ? "Çıkış Yap":"Giriş Yap" }</div>
+            <ul>
+                <li>Anasayfa</li>
+                <li>Hakkımızda</li>
+                <li>İletişim</li>
+            </ul>
+        </nav>
     )
 
 }
+
+export default Navbar
