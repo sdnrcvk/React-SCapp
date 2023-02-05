@@ -1,6 +1,6 @@
 import Booklist from "./components/BookList";
 import Navbar from "./components/Navbar";
-import ThemeContextProvider from "./contexts/ThemeContext";
+import ThemeContextProvider, {ThemeContext} from "./contexts/ThemeContext";
 
 function App() {
   return (
