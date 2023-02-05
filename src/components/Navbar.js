@@ -1,14 +1,9 @@
-import React, { Component } from 'react'
-import { ThemeContext } from '../contexts/ThemeContext'
+import React from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
-export class Navbar extends Component {
-
-  render() {
-
-    return(
-        <ThemeContext.Consumer>
-            {(context)=>{
-
+export default function Navbar(){
+    return (
+        <ThemeContext.Consumer>{(context)=>{
             const {isLightTheme,dark,light}=context;
             const theme=isLightTheme ? light:dark;
 
@@ -22,11 +17,8 @@ export class Navbar extends Component {
                     </ul>
                 </nav>
             )
-            }}
+        }}
         </ThemeContext.Consumer>
     )
 
-  }
 }
-
-export default Navbar
