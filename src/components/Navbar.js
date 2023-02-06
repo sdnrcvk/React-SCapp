@@ -11,11 +11,20 @@ const Navbar=()=>{
     return (
         <nav style={{background:theme.ui,color:theme.syntax}}>
             <h1>SCapp</h1>
-            <div onClick={toggleAuth}>{isAuthenticated ? "Çıkış Yap":"Giriş Yap" }</div>
             <ul>
                 <li>Anasayfa</li>
                 <li>Hakkımızda</li>
                 <li>İletişim</li>
+                <button type="button" onClick={toggleAuth} style={{
+                    background:theme.bg,
+                    color:theme.syntax,
+                    border:0,
+                    width:"80px",
+                    height:"30px",
+                    borderRadius:"10px",
+                }}>
+                {isAuthenticated ? "Çıkış Yap":"Giriş Yap" }
+                </button>
             </ul>
         </nav>
     )
